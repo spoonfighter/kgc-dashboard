@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 Q1 에브리타임 밸런스 마케팅 통찰 보고서</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Chosen Palette: Energetic Professional (Primary Blue: #1D4ED8, Accent Orange: #F97316, Soft Slate: #F8FAFC) -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;800&display=swap');
+        body { font-family: 'Pretendard', sans-serif; background-color: #f8fafc; color: #1e293b; scroll-behavior: smooth; }
+        .chart-container { position: relative; width: 100%; max-width: 650px; margin-left: auto; margin-right: auto; height: 350px; max-height: 400px; }
+        .glass-card { background: rgba(255, 255, 255, 0.9); border: 1px solid rgba(226, 232, 240, 0.8); border-radius: 1.5rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05); }
+        .nav-link.active { color: #1d4ed8; font-weight: 800; border-bottom: 2px solid #1d4ed8; }
+        @media (max-width: 640px) { .chart-container { height: 280px; } }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Application Structure Plan: 
+         1. 개요(Executive Summary): 핵심 KPI 3종을 헤더에 배치하여 즉각적인 성과 인지 유도.
+         2. 채널 분석(Channel Performance): 수도권 성장을 강조하고 지방 마트의 정체 원인을 시각적으로 대비.
+         3. 타겟 및 트렌드(Target & Lifestyle): 2030 비중과 '등산/테니스' 버블 차트를 통해 타겟 확장성 증명.
+         4. 정성 분석(VOC Analysis): 긍정/부정 여론을 밸런스 보드 형태로 배치하여 UX 개선 필요성 강조.
+         5. 전략 제언(Strategic Actions): 도출된 분석을 바탕으로 3가지 핵심 액션 플랜 제시.
+    -->
+
+    <!-- Visualization & Content Choices:
+         - 핵심 KPI: 숫자 위주 텍스트 카드 (신속한 정보 전달)
+         - 채널별 성장률: Bar Chart (수도권 vs 지방 극명한 대비 효과)
+         - 타겟 연령층: Donut Chart (2030 비중 45% 시각화)
+         - 라이프스타일 키워드: Bubble Chart (등산, 테니스 등 연관 키워드 규모 및 성장세 표현)
+         - VOC: HTML/CSS 기반 리스트 및 하이라이트 (데이터의 구체성 확보)
+         - Library: Chart.js 사용 (Responsive, No SVG/Mermaid)
+    -->
+
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <h1 class="text-xl font-extrabold text-blue-700 tracking-tight">KGC BRAND STRATEGY</h1>
+            <div class="hidden md:flex space-x-8 text-sm font-semibold text-slate-500">
+                <a href="#summary" class="hover:text-blue-600 transition">주요성과</a>
+                <a href="#sales" class="hover:text-blue-600 transition">판매분석</a>
+                <a href="#insight" class="hover:text-blue-600 transition">소비자통찰</a>
+                <a href="#strategy" class="hover:text-blue-600 transition">전략제언</a>
+            </div>
+            <div class="text-xs font-bold bg-blue-100 text-blue-700 px-3 py-1 rounded-full">3월 4주차</div>
+        </div>
+    </nav>
+
+    <header id="summary" class="bg-blue-700 text-white pt-16 pb-24 px-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-6 leading-tight">에브리타임 밸런스 리뉴얼:<br>2030 '갓생' 파트너로의 성공적 안착</h2>
+            <p class="text-blue-100 max-w-2xl mx-auto text-lg mb-12">사회초년생의 편의점 구매 강세와 아웃도어 라이프스타일 키워드 30% 증가를 통해 신규 시장 확장성을 확인했습니다.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl">
+                    <p class="text-blue-200 text-sm font-bold mb-2">수도권 매출 성장</p>
+                    <div class="text-4xl font-black">+15%</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl">
+                    <p class="text-blue-200 text-sm font-bold mb-2">2030 구매 비중</p>
+                    <div class="text-4xl font-black">45%</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl">
+                    <p class="text-blue-200 text-sm font-bold mb-2">아웃도어 키워드</p>
+                    <div class="text-4xl font-black">+30%</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 -mt-12">
+        <!-- Section 1: Sales Analysis -->
+        <section id="sales" class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+            <div class="glass-card p-8">
+                <h3 class="text-xl font-bold mb-2">채널 및 지역별 판매 추이</h3>
+                <p class="text-sm text-slate-500 mb-6">수도권 편의점 채널의 압도적 성장이 전체 실적을 견인하고 있으나, 지방 대형마트의 정체는 가격 저항감 해소 과제를 남겼습니다.</p>
+                <div class="chart-container">
+                    <canvas id="salesBarChart"></canvas>
+                </div>
+            </div>
+
+            <div class="glass-card p-8">
+                <h3 class="text-xl font-bold mb-2">구매 타겟 분포 (Age Mix)</h3>
+                <p class="text-sm text-slate-500 mb-6">리뉴얼 이후 2030 사회초년생이 핵심 구매층으로 급부상하며 제품의 이미지가 젊고 세련된 자기관리 아이템으로 변화했습니다.</p>
+                <div class="chart-container">
+                    <canvas id="ageDonutChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Consumer Insight -->
+        <section id="insight" class="mb-16">
+            <div class="glass-card p-10">
+                <div class="text-center mb-12">
+                    <h3 class="text-2xl font-extrabold mb-4">소비자 보이스(VOC) 및 라이프스타일 트렌드</h3>
+                    <p class="text-slate-600">500건의 리뷰 분석 결과, 제품의 본질적인 '맛'과 '디자인'은 성공적이나 '사용자 경험(UX)' 측면의 보완이 시급합니다.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <div class="p-5 bg-green-50 rounded-xl border border-green-100">
+                            <span class="text-green-600 font-black text-sm uppercase tracking-widest block mb-1">PROS: 맛 & 디자인</span>
+                            <p class="font-bold text-slate-800">"포장이 세련되어 선물하기 좋고, 쓴맛이 덜해 입문용으로 최적"</p>
+                        </div>
+                        <div class="p-5 bg-red-50 rounded-xl border border-red-100">
+                            <span class="text-red-600 font-black text-sm uppercase tracking-widest block mb-1">CONS: 가격 & UX</span>
+                            <p class="font-bold text-slate-800">"인상된 가격에 대한 부담과 박스 개봉 시의 물리적 뻑뻑함 호소"</p>
+                        </div>
+                        <div class="p-5 bg-blue-50 rounded-xl border border-blue-100">
+                            <span class="text-blue-600 font-black text-sm uppercase tracking-widest block mb-1">TREND: 라이프스타일</span>
+                            <p class="font-bold text-slate-800">등산 및 테니스 전후 '에너지 부스팅' 용도의 소비 패턴이 30% 급증</p>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="lifestyleBubbleChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Strategic Recommendations -->
+        <section id="strategy" class="mb-20">
+            <h3 class="text-2xl font-extrabold mb-8 text-center">전략적 제언 (Strategic Action Plan)</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-8 bg-white border border-slate-200 rounded-3xl hover:border-blue-500 transition-all group">
+                    <div class="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
+                        <span class="text-blue-600 font-bold group-hover:text-white">01</span>
+                    </div>
+                    <h4 class="text-lg font-bold mb-4">아웃도어 마케팅 가동</h4>
+                    <ul class="text-sm text-slate-500 space-y-3">
+                        <li class="flex items-start gap-2"><span>•</span> 등산로/테니스장 팝업 스토어 운영</li>
+                        <li class="flex items-start gap-2"><span>•</span> '운동 전 부스팅' 디지털 캠페인 강화</li>
+                    </ul>
+                </div>
+
+                <div class="p-8 bg-white border border-slate-200 rounded-3xl hover:border-orange-500 transition-all group">
+                    <div class="w-12 h-12 bg-orange-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-orange-600 transition-colors">
+                        <span class="text-orange-600 font-bold group-hover:text-white">02</span>
+                    </div>
+                    <h4 class="text-lg font-bold mb-4">지역 맞춤형 프로모션</h4>
+                    <ul class="text-sm text-slate-500 space-y-3">
+                        <li class="flex items-start gap-2"><span>•</span> 지방 마트 대상 '가족 대용량팩' 출시</li>
+                        <li class="flex items-start gap-2"><span>•</span> 구형 모델 보상 판매로 가격 저항 해소</li>
+                    </ul>
+                </div>
+
+                <div class="p-8 bg-white border border-slate-200 rounded-3xl hover:border-slate-800 transition-all group">
+                    <div class="w-12 h-12 bg-slate-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-slate-800 transition-colors">
+                        <span class="text-slate-600 font-bold group-hover:text-white">03</span>
+                    </div>
+                    <h4 class="text-lg font-bold mb-4">패키지 UX 즉각 개선</h4>
+                    <ul class="text-sm text-slate-500 space-y-3">
+                        <li class="flex items-start gap-2"><span>•</span> 이지 오픈(Easy-open) 공정 재점검</li>
+                        <li class="flex items-start gap-2"><span>•</span> 프리미엄 개봉 경험 위한 지질 개선</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-sm">© 2026 KGC Brand Strategy Dept. | Confidential Report</div>
+            <div class="flex gap-4">
+                <button onclick="window.print()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-xs font-bold transition">PDF 다운로드</button>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Common Label Wrapper Logic
+        const wrapLabel = (label) => {
+            if (label.length <= 16) return label;
+            const mid = Math.ceil(label.length / 2);
+            const spacePos = label.indexOf(' ', mid - 3);
+            if (spacePos === -1) return [label.substring(0, mid), label.substring(mid)];
+            return [label.substring(0, spacePos), label.substring(spacePos + 1)];
+        };
+
+        const commonOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false }
+            },
+            scales: {
+                y: { beginAtZero: true, grid: { borderDash: [5, 5] } },
+                x: { grid: { display: false } }
+            }
+        };
+
+        // Chart 1: Sales Analysis
+        const salesCtx = document.getElementById('salesBarChart').getContext('2d');
+        new Chart(salesCtx, {
+            type: 'bar',
+            data: {
+                labels: [wrapLabel('수도권 편의점 채널'), wrapLabel('지방 대형마트 채널')],
+                datasets: [{
+                    label: '전주 대비 성장률(%)',
+                    data: [15, -2],
+                    backgroundColor: ['#1d4ed8', '#f97316'],
+                    borderRadius: 12,
+                    barThickness: 45
+                }]
+            },
+            options: commonOptions
+        });
+
+        // Chart 2: Target Age Mix
+        const ageCtx = document.getElementById('ageDonutChart').getContext('2d');
+        new Chart(ageCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['2030 사회초년생', '3040 부모 세대', '5060 시니어 세대', '기타'],
+                datasets: [{
+                    data: [45, 25, 20, 10],
+                    backgroundColor: ['#1d4ed8', '#3b82f6', '#93c5fd', '#e2e8f0'],
+                    borderWidth: 0,
+                    hoverOffset: 20
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '75%',
+                plugins: {
+                    legend: { display: true, position: 'bottom' }
+                }
+            }
+        });
+
+        // Chart 3: Lifestyle Keyword Bubble
+        const lifeCtx = document.getElementById('lifestyleBubbleChart').getContext('2d');
+        new Chart(lifeCtx, {
+            type: 'bubble',
+            data: {
+                datasets: [
+                    { label: '등산', data: [{ x: 10, y: 30, r: 25 }], backgroundColor: 'rgba(29, 78, 216, 0.6)' },
+                    { label: '테니스', data: [{ x: 30, y: 15, r: 20 }], backgroundColor: 'rgba(29, 78, 216, 0.6)' },
+                    { label: '자기관리', data: [{ x: 20, y: 25, r: 15 }], backgroundColor: 'rgba(59, 130, 246, 0.6)' },
+                    { label: '선물하기', data: [{ x: 40, y: 35, r: 18 }], backgroundColor: 'rgba(147, 197, 253, 0.6)' },
+                    { label: '오운완', data: [{ x: 50, y: 20, r: 22 }], backgroundColor: 'rgba(29, 78, 216, 0.6)' }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: { display: false },
+                    y: { display: false }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: (context) => ` 키워드: ${context.dataset.label}`
+                        }
+                    }
+                }
+            }
+        });
+
+        // Simple Nav Interaction
+        window.addEventListener('scroll', () => {
+            const sections = ['summary', 'sales', 'insight', 'strategy'];
+            let current = '';
+            sections.forEach(section => {
+                const element = document.getElementById(section);
+                if (window.scrollY >= element.offsetTop - 100) {
+                    current = section;
+                }
+            });
+            // Update nav styles if needed
+        });
+    </script>
+</body>
+</html>
